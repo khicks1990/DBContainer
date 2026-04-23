@@ -1,0 +1,23 @@
+{
+  "name": "MySQL Classroom",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  "onCreateCommand": "bash .devcontainer/setup.sh",
+
+  "postStartCommand": "sudo mkdir -p /var/run/mysqld && sudo chown mysql:mysql /var/run/mysqld && sudo service mysql start",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "cweijan.vscode-mysql-client2"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+
+  "remoteUser": "vscode"
+}
